@@ -33,3 +33,20 @@ img {
   max-width: 100%;
   height: auto;
 }
+.heading{
+  text-align: center;
+}
+.smallBox{
+  width: 4rem;
+  height: 4rem;
+  /* margin: 1rem; */
+  border: 2px solid;
+  text-align: center;
+}
+.eachBox{
+  display: flex;
+  flex-wrap: wrap;
+  width: 1280px;
+  margin: 0 auto;
+  margin-top: 2rem;
+}
