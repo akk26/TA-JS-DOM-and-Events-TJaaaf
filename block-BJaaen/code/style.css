@@ -1,0 +1,33 @@
+*,
+*::before,
+*::after{
+  box-sizing: border-box;
+}
+.container{
+  max-width: 700px;
+  width: 40%;
+  margin: 0 auto;
+  /* border: 1px solid; */
+}
+header{
+  background-color: rgb(37,141,249);
+  width: 40%;
+  margin: 0 auto;
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
+h1{
+  text-align: center;
+  color: white;
+}
+.icon{
+  text-align: center;
+  font-size: 4rem;
+}
+.fa{
+  margin:3rem;
+}
+.reset{
+  margin-left: 3.5rem;
+  font-size: 2rem;
+}
