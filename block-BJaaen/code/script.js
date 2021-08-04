@@ -15,84 +15,74 @@ let result = document.querySelector(".result");
 
 let reset = document.querySelector(".reset");
 
-let playerScore = 0;
-let computerScore = 0;
 
 const playerScore_Span = document.querySelector(".player-score");
 
 const computerScore_Span = document.querySelector(".computer-score");
 
-function getComputerChoice() {
-    const choices = ["Rock", "Paper", "Scissors"];
-    const randomNumber = Math.floor(Math.random() * 3);
-    return choices[randomNumber]; 
-};
+let playerScore = 0;
+let computerScore = 0;
+
+
+function random() {
+  let computerChoice = ["Rock", "Paper", "Scissor"];
+  let number = Math.floor(Math.random() * 3);
+  return computerChoice[number];
+}
 
 function game(userChoice) {
-  let computerChoice = getComputerChoice();
-  computerChoice_Span.innerText = computerChoice;
-  switch (userChoice + computerChoice) {
+  let computer = random();
+  computerChoice_Span.innerText = computer;
+  switch (userChoice + computer) {
     case "paperRock":
-    case "rockScissors":
-    case "scissorsPaper":
-      result.innerText = "Hurrah! You Won!";
+    case "scissorPaper":
+    case "rockScissor":
+      result.innerText = "You Win";
       result.style.color = "green";
       playerScore += 1;
       playerScore_Span.innerText = playerScore;
       break;
 
     case "rockPaper":
-    case "paperScissors ":
-    case "scissorsRock":
-      result.innerText = "Hey! You Lost!";
+    case "paperScissor":
+    case "scissorRock":
+      result.innerText = "You lost";
       result.style.color = "red";
       computerScore += 1;
       computerScore_Span.innerText = computerScore;
       break;
 
-    case "rockRock":
     case "paperPaper":
-    case "scissorsScissors":
-      result.innerText = "It's A tie!";
-      result.style.color = "rgb(34,142,251)";
+    case "scissorScissor":
+    case "rockRock":
+      result.innerText = "Tie!";
+      result.style.color = "blue";
       break;
   }
-
 }
 
 function main() {
   rock.addEventListener("click", () => {
-    playerChoice_Span.innerText = " choose Rock";
+    playerChoice_Span.innerText = " choose rock";
     game("rock");
   });
 
   paper.addEventListener("click", () => {
-    playerChoice_Span.innerText = " choose Paper";
+    playerChoice_Span.innerText = " choose paper";
     game("paper");
   });
+
   scissor.addEventListener("click", () => {
-    playerChoice_Span.innerText = " choose Scissors";
-    game("scissors");
+    playerChoice_Span.innerText = " choose scissor";
+    game("scissor");
   });
+
   reset.addEventListener("click", () => {
-    let playerScore = 0;
-    playerChoice_Span.innerText = "";
-    playerScore_Span.innerText = playerScore;
-    let computerScore = 0;
+    computerScore_Span.innerText = 0;
+    playerScore_Span.innerText = 0;
     computerChoice_Span.innerText = "";
-    computerScore_Span.innerText = computerScore;
+    playerChoice_Span.innerText = "";
     result.innerText = "";
   });
 }
 main();
-
-
-
-
-
-
-
-
-
-
-
