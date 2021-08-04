@@ -85,9 +85,35 @@ p {
   display: flex;
   flex-direction: column;
 }
+.first{
+  padding: 0.5rem;
+}
 input[type='text'] {
   width: 100%;
 }
 .terms {
   display: inline-block;
+}
+
+.user-details{
+  width: 40%;
+  height: 400px;
+  margin: 0 auto;
+  background-color: rgb(255, 255, 255);
+  padding: 5rem;
+}
+
+h3{
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+p{
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+a{
+  font-size: 1.5rem;
+  font-weight: 700;
 }
