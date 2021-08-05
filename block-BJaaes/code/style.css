@@ -35,3 +35,40 @@ img {
   max-width: 100%;
   height: auto;
 }
+
+
+/* custom style of page */
+
+
+.container{
+  max-width: 1320px;
+  width: 20%;
+  margin: 0 auto;
+
+}
+body{
+  background-color: rgb(163, 163, 228);
+}
+input{
+  display: block;
+}
+
+.form-control{
+ width: 100%;
+}
+input{
+  width: 100%;
+  padding: 0.5rem;
+}
+label{
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.btn{
+  margin-top: 1rem;
+  padding: 0.5rem;
+}
+small{
+  color: red;
+}
