@@ -26,3 +26,7 @@ li{
 .cross{
   margin-left: 1rem;
 }
+
+.checkbox:checked ~ .inputName{
+  text-decoration: line-through;
+}
