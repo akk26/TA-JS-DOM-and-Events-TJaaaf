@@ -29,7 +29,10 @@ function all(event) {
   allLists.append(list);
   list.append(checkbox, inputName, cross);
 
-  event.target.elements.movie.value = "";
+  event.target.elements.movie.value = ""; 
+
 }
 
 form.addEventListener("submit", all);
+
+
