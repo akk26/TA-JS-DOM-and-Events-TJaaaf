@@ -44,3 +44,9 @@ span{
   background-color: rgb(255, 255, 255);
   color: cornflowerblue;
 }
+.selected{
+  background-color: white !important;
+  border: 1px solid !important;
+  color: black !important;
+}
+

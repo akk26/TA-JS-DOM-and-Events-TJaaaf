@@ -3,22 +3,31 @@ let input = document.querySelector(".input-area");
 let ul = document.querySelector(".ul");
 
 let all = document.querySelector(".all");
-console.log(all);
 
-let allToDo = JSON.parse(localStorage.getItem("todo")) ||[];
+let active = document.querySelector(".active");
+
+let completed = document.querySelector(".completed");
+
+let clear = document.querySelector(".clear");
+
+let byDefault = all;
+
+all.classList.add("selected")
+
+let allToDo = JSON.parse(localStorage.getItem("todo")) || [];
 
 function handleDelete(event) {
   let id = event.target.dataset.id;
   allToDo.splice(id, 1);
   localStorage.setItem("todo", JSON.stringify(allToDo));
-  createUI(); 
+  createUI();
 }
 
 function handleToggle(event) {
   let id = event.target.dataset.id;
   allToDo[id].isDone = !allToDo[id].isDone;
   localStorage.setItem("todo", JSON.stringify(allToDo));
-  createUI(); 
+  createUI();
 }
 
 function createUI() {
@@ -28,55 +37,46 @@ function createUI() {
     let input = document.createElement("input");
     input.type = "checkbox";
     input.addEventListener("input", handleToggle);
-    input.setAttribute("data-id",index);
+    input.setAttribute("data-id", index);
     input.checked = todo.isDone;
-   
+
     let p = document.createElement("p");
     p.innerText = todo.eventName;
-    
-     if (input.checked === true) {
-       p.style.textDecoration = "line-through";
-     } else {
-       p.style.textDecoration = "none";
-     }
-    
-    let active = document.querySelector(".active");
+
+    if (input.checked === true) {
+      p.style.textDecoration = "line-through";
+    } else {
+      p.style.textDecoration = "none";
+    }
+
     active.addEventListener("click", (event) => {
       if (input.checked === false) {
-        li.style.display = "block"
+        li.style.display = "block";
       } else {
-        li.style.display = 'none'
+        li.style.display = "none";
+      }
+    });  
+
+    completed.addEventListener("click", (event) => {
+      if (input.checked === false) {
+        li.style.display = "none";
+      } else {
+        li.style.display = "block";
       }
     });
 
-    let clear = document.querySelector('.clear');
-    clear.addEventListener('click', (event) => {
-      if (input.checked === true) {
-        li.innerText = "";
-      } 
-    })
-
-    let completed = document.querySelector('.completed');
-    completed.addEventListener('click', (event) => {
-      if (input.checked === false) {
-        li.style.display = 'none'
-      } else {
-        li.style.display = 'block'
-      }
-    })
-    
     let span = document.createElement("span");
     span.innerText = "❌ ";
     span.setAttribute("data-id", index);
-    span.addEventListener("click", handleDelete)
-    
+    span.addEventListener("click", handleDelete);
+
     li.append(input, p, span);
     ul.append(li);
-  })
+  });
 }
 
 input.addEventListener("keyup", (event) => {
-  let value = event.target.value
+  let value = event.target.value;
   if (event.keyCode === 13 && value !== "") {
     let todo = {
       eventName: value,
@@ -85,14 +85,21 @@ input.addEventListener("keyup", (event) => {
     allToDo.push(todo);
     event.target.value = "";
     createUI();
+    localStorage.setItem("allToDo", JSON.stringify(allToDo));
   }
-  
-  localStorage.setItem("todo", JSON.stringify(allToDo));
 });
 
 all.addEventListener("click", (event) => {
   allToDo.forEach((elm) => {
-    createUI(elm)
-  })
+    createUI(elm);
+  });
+});
+
+
+clear.addEventListener("click", () => {
+  allToDo = allToDo.filter((todo) => !todo.isDone)
+  createUI()
+  localStorage.setItem("todo", JSON.stringify(allToDo));
 })
 
+ 
