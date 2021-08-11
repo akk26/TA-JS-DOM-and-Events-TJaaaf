@@ -1,0 +1,32 @@
+
+header{
+  font-size: 2rem;
+}
+
+.container{
+  width: 1320px;
+  width: 30%;
+  margin: 0 auto;
+  background-color: cadetblue;
+  text-align: center;
+}
+body{
+  background-color: burlywood;
+}
+input{
+  width: 80%;
+  padding: 0.5rem;
+}
+li{
+  display: flex;
+  list-style: none;
+  align-items: baseline;
+  margin-right: 14rem;
+}
+.cross{
+  margin-left: 1rem;
+}
+
+.checkbox:checked ~ .inputName{
+  text-decoration: line-through;
+}
